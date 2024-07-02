@@ -1,5 +1,6 @@
 import { useState } from "react"
 import {nanoid} from 'nanoid';
+import {toast} from 'react-toastify'
 
 
 const Form = ({addItem}) => {
@@ -11,7 +12,10 @@ const Form = ({addItem}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(!newItemName) return;
+    if(!newItemName) {
+      toast.error('Please write some task');
+      return;
+    }
     addItem(newItemName);
     setNewItemName('');
     
