@@ -2,6 +2,7 @@ import SingleItem from "./SingleItem"
 
 const Items = ({items, removeItem}) => {
   return (
+    items.length > 0 ?
     <div className="items">
         {items.map(itemsMap => {
             return <SingleItem 
@@ -9,7 +10,7 @@ const Items = ({items, removeItem}) => {
             itemsMap={itemsMap}
             removeItem={removeItem} />
         })}
-    </div>
+    </div> : 'Add some item here'
   )
 }
 
